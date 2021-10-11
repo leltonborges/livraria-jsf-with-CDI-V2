@@ -1,13 +1,13 @@
 package br.com.livraria.bean;
 
+import br.com.cdi.api.lib.transaction.TransactionCDI;
 import br.com.livraria.dao.AutorDAO;
-import br.com.livraria.dao.DAO;
 import br.com.livraria.entity.Autor;
 
+import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.persistence.EntityManager;
 import java.io.Serializable;
 import java.util.List;
 
@@ -22,12 +22,9 @@ public class AutorBean implements Serializable {
     private Autor autor;
     private Integer autorId;
 
-    public AutorBean() {
+    @PostConstruct
+    public void init() {
         this.autor = new Autor();
-    }
-
-    public AutorBean(Autor autor) {
-        this.autor = autor;
     }
 
     public Autor getAutor() {
@@ -46,6 +43,7 @@ public class AutorBean implements Serializable {
         this.autorId = autorId;
     }
 
+    @TransactionCDI
     public String gravar() {
 
         if (this.autor.getId() == null) {
@@ -66,6 +64,7 @@ public class AutorBean implements Serializable {
         this.autor = autor;
     }
 
+    @TransactionCDI
     public void removeAutor(Autor autor) {
         autorDAO.remove(autor);
     }

@@ -1,3 +1,6 @@
 target/
-.jpb
+.jpb/
 .idea/
+.classpath
+.project
+.settings/

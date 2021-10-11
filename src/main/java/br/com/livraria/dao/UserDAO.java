@@ -22,7 +22,6 @@ public class UserDAO implements Serializable {
                     .setParameter("pPass", user.getPass())
                     .getSingleResult();
 
-            this.manager.close();
             return true;
         } catch (NoResultException e) {
             return false;

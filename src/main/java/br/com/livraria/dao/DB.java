@@ -1,13 +1,12 @@
 package br.com.livraria.dao;
 
-import br.com.livraria.dao.DAO;
 import br.com.livraria.entity.Autor;
 import br.com.livraria.entity.Livro;
 import br.com.livraria.entity.User;
+import br.com.cdi.api.lib.DAO.DAO;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
-import javax.swing.text.html.parser.Entity;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;

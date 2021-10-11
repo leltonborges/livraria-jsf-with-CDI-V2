@@ -1,11 +1,12 @@
 package br.com.livraria.bean;
 
+import br.com.cdi.api.lib.transaction.TransactionCDI;
 import br.com.livraria.dao.AutorDAO;
-import br.com.livraria.dao.DAO;
 import br.com.livraria.dao.LivroDAO;
 import br.com.livraria.entity.Autor;
 import br.com.livraria.entity.Livro;
 
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -34,7 +35,8 @@ public class LivroBean implements Serializable {
 
     private List<Livro> livroList;
 
-    public LivroBean() {
+    @PostConstruct
+    public void init() {
         this.livro = new Livro();
     }
 
@@ -77,8 +79,8 @@ public class LivroBean implements Serializable {
         return livroList;
     }
 
+    @TransactionCDI
     public void save() {
-
         if (livro.getAutors().isEmpty()) {
             FacesContext.getCurrentInstance().addMessage("autor", new FacesMessage("Livro deve ter pelo menos um Autor"));
         }
@@ -101,6 +103,7 @@ public class LivroBean implements Serializable {
         return autorDAO.getAll();
     }
 
+    @TransactionCDI
     public void remove(Livro livro) {
         livroDAO.remove(livro);
         livroList = livroDAO.getAll();

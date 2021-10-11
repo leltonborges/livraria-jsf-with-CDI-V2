@@ -16,6 +16,7 @@ public class Autorizador implements PhaseListener {
         if (view.equals("/login.xhtml")) {
             return;
         }
+        //TODO apagar userTMP
         User userTmp = new User(3, "test", "123");
         context.getExternalContext().getSessionMap().put("userIsLogin", userTmp);
 

@@ -1,7 +1,7 @@
 package br.com.livraria.dao;
 
 import br.com.livraria.entity.Livro;
-import br.com.livraria.transaction.TransactionCDI;
+import br.com.cdi.api.lib.DAO.DAO;
 
 import javax.inject.Inject;
 import java.io.Serializable;
@@ -14,17 +14,14 @@ public class LivroDAO implements Serializable {
     @Inject
     public DAO<Livro> livroDAO;
 
-    @TransactionCDI
     public void save(Livro entity) {
         livroDAO.save(entity);
     }
 
-    @TransactionCDI
     public void remove(Livro entity) {
         livroDAO.remove(entity);
     }
 
-    @TransactionCDI
     public void update(Livro entity) {
         livroDAO.update(entity);
     }

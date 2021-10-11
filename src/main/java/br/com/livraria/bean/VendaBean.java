@@ -1,6 +1,5 @@
 package br.com.livraria.bean;
 
-import br.com.livraria.dao.DAO;
 import br.com.livraria.dao.LivroDAO;
 import br.com.livraria.entity.Livro;
 import br.com.livraria.entity.Venda;
@@ -8,6 +7,7 @@ import org.primefaces.model.charts.ChartData;
 import org.primefaces.model.charts.bar.BarChartDataSet;
 import org.primefaces.model.charts.bar.BarChartModel;
 
+import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -30,7 +30,8 @@ public class VendaBean implements Serializable {
         return barModel;
     }
 
-    public VendaBean() {
+    @PostConstruct
+    public void  init() {
         getVendasModel();
     }
 

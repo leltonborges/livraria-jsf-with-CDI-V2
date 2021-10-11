@@ -4,4 +4,9 @@
        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
                       http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd"
        bean-discovery-mode="all">
+
+<!--    Uma forma de add imterceptor-->
+    <interceptors>
+        <class>br.com.cdi.api.lib.transaction.ManagerTransaction</class>
+    </interceptors>
 </beans>

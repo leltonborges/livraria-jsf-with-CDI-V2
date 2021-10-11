@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<ui:composition template="_template.xhtml">
+    <ui:define name="title">
+        <h1><p:outputPanel>Login</p:outputPanel></h1>
+    </ui:define>
+    <ui:define name="context">
+        <p:messages globalOnly="true"/>
+        <h:form id="formLogin">
+            <p:fieldset legend="Dados do login">
+                <h:panelGrid columns="3">
+                    <h:outputLabel value="Login:" for="login"/>
+                    <p:inputText type="email" required="true"
+                                 requiredMessage="Email não informado" id="login"
+                                 value="#{userBean.user.email}" validatorMessage="Email inválido" placeholder="example@example.com">
+                        <f:validateRegex pattern=".+@.+"/>
+                    </p:inputText>
+                    <p:message for="login" id="messageLogin"/>
+                    <p:outputLabel value="Password:" for="pass"/>
+                    <p:password id="pass" value="#{userBean.user.pass}" feedback="true"
+                                required="true" requiredMessage="O campo é obrigatório"
+                                promptLabel="Informe sua senha" weakLabel="Fraca"
+                                goodLabel="Boa" strongLabel="Forte"/>
+                    <p:message for="pass" id="messagePass"/>
+                    <p:commandButton value="Logar" action="#{userBean.login}"
+                                     update="@form" process="@form"/>
+                </h:panelGrid>
+            </p:fieldset>
+        </h:form>
+    </ui:define>
+    <ui:define name="footer">
+        Lelton&copy;
+    </ui:define>
+</ui:composition>
+</html>

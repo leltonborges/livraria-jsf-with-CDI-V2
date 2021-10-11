@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head/>
+
+<h:body style="background: #3C3F41">
+    <div id="header">
+        <h:panelGrid columns="2" >
+            <h:graphicImage library="img" name="logo-web.png"/>
+            <h:form style="position: absolute; right: 10px;">
+                <p:themeSwitcher id="basic" value="#{themeBean.theme}" style="min-width:165px">
+                    <f:selectItem itemLabel="Altere o tema" itemValue=""/>
+                    <f:selectItems value="#{themeBean.themes}" var="tema" itemLabel="#{tema}" itemValue="#{tema}" />
+                    <f:ajax/>
+                </p:themeSwitcher>
+            </h:form>
+        </h:panelGrid>
+        <p:growl showDetail="true">
+            <p:autoUpdate/>
+        </p:growl>
+        <ui:insert name="title"/>
+    </div>
+    <div id="context">
+        <h:form id="loginSession" rendered="#{sessionScope['userIsLogin'] != null}">
+            <div class="card" id="menu">
+                <p:tabMenu activeIndex="#{param.i}">
+                    <p:menuitem value="Livros" outcome="livro?faces-redirect=true" icon="pi pi-fw pi-home">
+                        <f:param name="i" value="0"/>
+                    </p:menuitem>
+                    <p:menuitem value="Autores" outcome="autor?faces-redirect=true" icon="pi pi-fw pi-pencil">
+                        <f:param name="i" value="1" />
+                    </p:menuitem>
+                    <p:menuitem value="Vendas" outcome="vendas?faces-redirect=true" icon="pi pi-fw pi-pencil">
+                        <f:param name="i" value="2" />
+                    </p:menuitem>
+                    <p:menuitem value="Logout" action="#{userBean.signOut}"
+                                update="@all" process="@all" icon="pi pi-fw pi-calendar">
+                    </p:menuitem>
+                    <p:menuitem value="#{sessionScope['userIsLogin'].email}"/>
+                </p:tabMenu>
+            </div>
+        </h:form>
+        <ui:insert name="context"/>
+    </div>
+    <div id="footer">
+        <hr/>
+        Copyright 2022&copy;
+        <br/><ui:insert name="footer"/>
+    </div>
+</h:body>
+</html>

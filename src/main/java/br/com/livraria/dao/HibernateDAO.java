@@ -2,6 +2,7 @@ package br.com.livraria.dao;
 
 import org.jetbrains.annotations.NotNull;
 
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;
 import javax.persistence.EntityManager;
@@ -13,6 +14,7 @@ public class HibernateDAO {
     private static EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE);
 
     @Produces
+    @RequestScoped
     public EntityManager getManager() {
         return factory.createEntityManager();
     }

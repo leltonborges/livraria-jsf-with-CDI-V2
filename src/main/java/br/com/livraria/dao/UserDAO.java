@@ -4,7 +4,6 @@ import br.com.livraria.entity.User;
 import org.jetbrains.annotations.NotNull;
 
 import javax.inject.Inject;
-import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import java.io.Serializable;
@@ -14,9 +13,6 @@ public class UserDAO implements Serializable {
 
     @Inject
     private EntityManager manager;
-
-    @Inject
-    private DAO<User> userDAO;
 
     public boolean isExists(@NotNull User user) {
         try {

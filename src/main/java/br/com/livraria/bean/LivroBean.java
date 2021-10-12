@@ -48,6 +48,10 @@ public class LivroBean implements Serializable {
         return autorId;
     }
 
+    public void setAutorId(Integer autorId) {
+        this.autorId = autorId;
+    }
+
     public Integer getLivroId() {
         return livroId;
     }
@@ -58,6 +62,8 @@ public class LivroBean implements Serializable {
 
     public void setAutor() {
         Autor autor = autorDAO.getById(autorId);
+        System.out.println("\n\nAutor: "+ autor.getName());
+        System.out.println("Email: "+ autor.getName()+"\n\n");
         this.livro.addAutor(autor);
     }
 

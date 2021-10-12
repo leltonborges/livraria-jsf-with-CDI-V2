@@ -2,7 +2,6 @@ package br.com.livraria.bean;
 
 import br.com.cdi.api.lib.helper.MessageHelper;
 import br.com.cdi.api.lib.jsf.annotation.ScopeMap;
-import br.com.cdi.api.lib.transaction.TransactionCDI;
 import br.com.livraria.dao.UserDAO;
 import br.com.livraria.entity.User;
 

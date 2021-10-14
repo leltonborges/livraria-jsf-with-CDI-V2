@@ -12,7 +12,7 @@ public class LivroDAO implements Serializable {
 
 
     @Inject
-    public DAO<Livro> livroDAO;
+    public DAO<Livro, Integer> livroDAO;
 
     public void save(Livro entity) {
         livroDAO.save(entity);

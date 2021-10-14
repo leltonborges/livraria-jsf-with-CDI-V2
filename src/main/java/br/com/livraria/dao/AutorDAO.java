@@ -12,7 +12,7 @@ public class AutorDAO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Inject
-    private DAO<Autor> autorDAO;
+    private DAO<Autor, Integer> autorDAO;
 
     public void save(Autor entity) {
         autorDAO.save(entity);

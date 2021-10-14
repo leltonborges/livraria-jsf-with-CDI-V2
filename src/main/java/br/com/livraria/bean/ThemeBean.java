@@ -1,5 +1,7 @@
 package br.com.livraria.bean;
 
+import br.com.cdi.api.lib.jsf.annotation.SessionModel;
+
 import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.view.ViewScoped;
@@ -8,8 +10,7 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 
-@Named
-@SessionScoped
+@SessionModel
 public class ThemeBean implements Serializable {
     private static final long serialVersionUID = 1L;
     private String theme = "luna-blue";

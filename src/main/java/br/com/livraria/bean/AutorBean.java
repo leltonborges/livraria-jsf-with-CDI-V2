@@ -5,14 +5,12 @@ import br.com.livraria.dao.AutorDAO;
 import br.com.livraria.entity.Autor;
 
 import javax.annotation.PostConstruct;
-import javax.faces.view.ViewScoped;
+import javax.enterprise.inject.Model;
 import javax.inject.Inject;
-import javax.inject.Named;
 import java.io.Serializable;
 import java.util.List;
 
-@Named
-@ViewScoped
+@Model
 public class AutorBean implements Serializable {
     private static final long serialVersionUID = 1L;
 

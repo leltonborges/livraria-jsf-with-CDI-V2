@@ -1,5 +1,6 @@
 package br.com.livraria.bean;
 
+import br.com.cdi.api.lib.jsf.annotation.ViewModel;
 import br.com.cdi.api.lib.transaction.TransactionCDI;
 import br.com.livraria.dao.AutorDAO;
 import br.com.livraria.dao.LivroDAO;
@@ -11,16 +12,12 @@ import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.validator.ValidatorException;
-import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
-import javax.inject.Named;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Locale;
 
-//@RequestScoped
-@Named
-@ViewScoped
+@ViewModel
 public class LivroBean implements Serializable {
     private static final long serialVersionUID = 1L;
 

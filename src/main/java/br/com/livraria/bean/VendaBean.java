@@ -1,5 +1,6 @@
 package br.com.livraria.bean;
 
+import br.com.cdi.api.lib.jsf.annotation.ViewModel;
 import br.com.livraria.dao.LivroDAO;
 import br.com.livraria.entity.Livro;
 import br.com.livraria.entity.Venda;
@@ -8,9 +9,7 @@ import org.primefaces.model.charts.bar.BarChartDataSet;
 import org.primefaces.model.charts.bar.BarChartModel;
 
 import javax.annotation.PostConstruct;
-import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
-import javax.inject.Named;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -18,8 +17,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 
-@Named
-@ViewScoped
+@ViewModel
 public class VendaBean implements Serializable {
     private static final long serialVersionUID = 1L;
     @Inject

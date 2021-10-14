@@ -1,21 +1,17 @@
 package br.com.livraria.bean;
 
 import br.com.cdi.api.lib.helper.MessageHelper;
-import br.com.cdi.api.lib.jsf.annotation.ScopeMap;
 import br.com.livraria.dao.UserDAO;
 import br.com.livraria.entity.User;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
-import javax.inject.Named;
 import java.io.Serializable;
-import java.util.Map;
 
-@Named
-@ViewScoped
+@Model
 public class LoginBean implements Serializable {
     private static final long serialVersionUID = 1L;
     private User user;
